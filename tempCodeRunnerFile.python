@@ -1,0 +1,16 @@
+# After loading the model
+import numpy as np
+from tensorflow.keras.models import load_model
+model = load_model('./models/fruits.h5')  # Update with your model path
+model_input_shape = (1, 100, 100, 3)
+print(f'Model input shape: {model_input_shape}')
+
+# In your predict_freshness function
+processed_image = preprocess_image(image)
+print(f'Processed image shape: {processed_image.shape}')
+
+# Ensure they match
+if processed_image.shape[1:] == model_input_shape[1:]:
+    print("Shape matches!")
+else:
+    print("Shape does not match!")
